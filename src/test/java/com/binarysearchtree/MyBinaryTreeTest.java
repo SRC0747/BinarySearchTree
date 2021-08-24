@@ -70,4 +70,35 @@ public class MyBinaryTree<K extends Comparable<K>> {
     private int getSizeRecursive(MyBinaryNode<K> current){
         return current == null ? 0: 1 + this.getSizeRecursive(current,left) + this.getSizeRecursive(current,right);
     }
+     //Represent the root of binary tree
+    public Node root;
+
+    public static boolean flag = false;
+
+    public SearchBinaryTree(){
+        root = null;
+    }
+
+    //searchNode() will search for the particular node in the binary tree
+    public void searchNode(Node temp, int value){
+        //Check whether tree is empty
+        if(root == null){
+            System.out.println("Tree is empty");
+        }
+        else{
+            //If value is found in the given binary tree then, set the flag to true
+            if(temp.data == value){
+                flag = true;
+                return;
+            }
+            //Search in left subtree
+            if(flag == false && temp.left != null){
+                searchNode(temp.left, value);
+            }
+            //Search in right subtree
+            if(flag == false && temp.right != null){
+                searchNode(temp.right, value);
+            }
+        }
+    }
 }
