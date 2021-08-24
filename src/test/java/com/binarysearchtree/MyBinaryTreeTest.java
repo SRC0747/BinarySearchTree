@@ -20,11 +20,21 @@ public class MyBinaryTreeTest {
 
     @Test
     <MyBinaryTree>
-    void given3NodesWhenAddedToBST() {
+    void givenNodesWhenAddedToBST() {
         MyBinaryTree<Integer> myBinaryTree= new MyBinaryTree<>();
         myBinaryTree.add(56);
         myBinaryTree.add(30);
         myBinaryTree.add(70);
+         myBinaryTree.add(22);
+        myBinaryTree.add(40);
+        myBinaryTree.add(60);
+        myBinaryTree.add(95);
+        myBinaryTree.add(11);
+        myBinaryTree.add(65);
+        myBinaryTree.add(3);
+        myBinaryTree.add(16);
+        myBinaryTree.add(63);
+        myBinaryTree.add(67);
         int size = myBinaryTree.getSize();
         Assert.assertEquals(3,size);
     }
@@ -54,5 +64,10 @@ public class MyBinaryTree<K extends Comparable<K>> {
         }
         return current;
     }
-
+      public int getSize(){
+        return this.getSizeRecursive(root);
+    }
+    private int getSizeRecursive(MyBinaryNode<K> current){
+        return current == null ? 0: 1 + this.getSizeRecursive(current,left) + this.getSizeRecursive(current,right);
+    }
 }
