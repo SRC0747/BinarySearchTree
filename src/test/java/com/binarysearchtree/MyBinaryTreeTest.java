@@ -20,7 +20,7 @@ public class MyBinaryTreeTest {
 
     @Test
     <MyBinaryTree>
-    void given3NodesWhenAddedToBST() {
+    void givenNodesWhenAddedToBST() {
         MyBinaryTree<Integer> myBinaryTree= new MyBinaryTree<>();
         myBinaryTree.add(56);
         myBinaryTree.add(30);
